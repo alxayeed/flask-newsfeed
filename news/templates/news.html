@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>News Application</title>
+    <!-- Bootstrap cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <!-- <form method="post"> -->
+        <form>
+          <div class="row">
+            <div class="col-xs-10">
+              <select name="search" class="form-control">
+                <option value="">--- Select News Channel ---</option>
+                <option value="bbc">BBC</option>
+                <option value="cnn">CNN</option>
+                <option value="ndtv">NDTV</option>
+                <option value="rediff">Rediff</option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <input
+                type="submit"
+                class="btn btn-danger btn-block"
+                value="Submit"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      {% for news in articles %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a href="{{news.link}}">{{news.title}}</a>
+          </h3>
+        </div>
+        <div class="panel-body">{{news.summary}}</div>
+        <div class="panel-footer">
+          <h3 class="panel-title">{{news.published}}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
